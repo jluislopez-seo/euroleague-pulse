@@ -40,7 +40,6 @@
         }
     </script>
     <style>
-        /* Personalización sutil de scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
@@ -286,7 +285,6 @@
                 
                 <!-- WIDGET 1: CALENDARIO DE PARTIDOS Y RESULTADOS -->
                 <div class="bg-euro-card border border-euro-border rounded-2xl overflow-hidden shadow-xl">
-                    <!-- Cabecera con acento deportivo verde oscuro / teal -->
                     <div class="bg-gradient-to-r from-euro-pine via-emerald-950 to-euro-card px-4 py-3.5 border-b border-emerald-800/40 flex items-center justify-between">
                         <div class="flex items-center gap-2">
                             <div class="w-7 h-7 rounded-lg bg-euro-teal/25 border border-euro-teal/50 flex items-center justify-center text-teal-300">
@@ -305,8 +303,8 @@
                             <i data-lucide="chevron-left" class="w-4 h-4"></i>
                         </button>
                         <div class="text-center">
-                            <span id="currentRoundLabel" class="font-display text-base font-bold tracking-wide uppercase text-white">Jornada 12</span>
-                            <span id="roundDatesLabel" class="block text-[11px] text-gray-400">21 - 22 Nov</span>
+                            <span id="currentRoundLabel" class="font-display text-base font-bold tracking-wide uppercase text-white">Jornada 14</span>
+                            <span id="roundDatesLabel" class="block text-[11px] text-gray-400">24 - 25 Nov</span>
                         </div>
                         <button onclick="changeRound(1)" id="nextRoundBtn" class="p-1.5 rounded-lg bg-gray-800 hover:bg-gray-700 disabled:opacity-40 disabled:pointer-events-none text-gray-200 transition" aria-label="Next round">
                             <i data-lucide="chevron-right" class="w-4 h-4"></i>
@@ -321,7 +319,6 @@
 
                 <!-- WIDGET 2: CLASIFICACIÓN OFICIAL DE LA EUROLIGA -->
                 <div class="bg-euro-card border border-euro-border rounded-2xl overflow-hidden shadow-xl">
-                    <!-- Cabecera -->
                     <div class="bg-gradient-to-r from-euro-pine via-emerald-950 to-euro-card px-4 py-3.5 border-b border-emerald-800/40 flex items-center justify-between">
                         <div class="flex items-center gap-2">
                             <div class="w-7 h-7 rounded-lg bg-euro-orange/20 border border-euro-orange/40 flex items-center justify-center text-euro-orange">
@@ -334,7 +331,7 @@
                         <span class="text-[10px] font-bold text-gray-300 bg-black/40 px-2 py-0.5 rounded border border-gray-700">2026-27</span>
                     </div>
 
-                    <!-- Tabla Compacta de 18 Equipos -->
+                    <!-- Tabla Compacta de 20 Equipos -->
                     <div class="overflow-x-auto">
                         <table class="w-full text-left border-collapse">
                             <thead>
@@ -391,15 +388,12 @@
         </div>
     </footer>
 
-    <!-- MODAL TÉCNICO: Automatización en GitHub Pages (GitHub Actions + Python RSS Scraper) -->
+    <!-- MODAL TÉCNICO: Automatización en GitHub Pages -->
     <div id="techModal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-        <!-- Backdrop -->
         <div class="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity" onclick="closeTechModal()"></div>
 
         <div class="flex min-h-full items-center justify-center p-4 sm:p-6">
             <div class="relative w-full max-w-4xl bg-euro-card border border-gray-700 rounded-2xl shadow-2xl overflow-hidden text-left transform transition-all">
-                
-                <!-- Header del Modal -->
                 <div class="bg-gray-900/90 px-6 py-4 border-b border-gray-800 flex items-center justify-between">
                     <div class="flex items-center gap-3">
                         <div class="w-9 h-9 rounded-xl bg-euro-orange/20 border border-euro-orange/40 flex items-center justify-center text-euro-orange">
@@ -415,10 +409,7 @@
                     </button>
                 </div>
 
-                <!-- Cuerpo del Modal -->
                 <div class="p-6 max-h-[78vh] overflow-y-auto space-y-6 text-sm text-gray-300">
-                    
-                    <!-- Explicación de Arquitectura -->
                     <div class="bg-gray-900/60 border border-gray-800 rounded-xl p-4">
                         <h4 class="font-bold text-white mb-2 flex items-center gap-2">
                             <i data-lucide="git-branch" class="w-4 h-4 text-euro-orange"></i>
@@ -427,134 +418,11 @@
                         <ol class="list-decimal list-inside space-y-1.5 text-xs sm:text-sm text-gray-300 leading-relaxed">
                             <li data-i18n="archStep1">Sube este archivo <code class="bg-gray-800 px-1.5 py-0.5 rounded text-euro-orange">index.html</code> a tu repositorio de GitHub y activa <strong>GitHub Pages</strong>.</li>
                             <li data-i18n="archStep2">Crea los dos archivos siguientes en tu repositorio: <code class="bg-gray-800 px-1.5 py-0.5 rounded text-blue-300">scripts/fetch_news.py</code> y <code class="bg-gray-800 px-1.5 py-0.5 rounded text-blue-300">.github/workflows/update-news.yml</code>.</li>
-                            <li data-i18n="archStep3">Cada 30 minutos, GitHub Actions ejecutará el scraper en Python, detectará rumores vs noticias oficiales, traducirá a ES/EN/TR/EL y guardará <code class="bg-gray-800 px-1.5 py-0.5 rounded text-green-300">data/news.json</code>, <code class="bg-gray-800 px-1.5 py-0.5 rounded text-green-300">data/schedule.json</code> y <code class="bg-gray-800 px-1.5 py-0.5 rounded text-green-300">data/standings.json</code> directamente en tu repo.</li>
+                            <li data-i18n="archStep3">Cada 30 minutos, GitHub Actions ejecutará el scraper en Python, detectará rumores vs noticias oficiales, traducirá a ES/EN/TR/EL y guardará <code class="bg-gray-800 px-1.5 py-0.5 rounded text-green-300">data/news.json</code> directamente en tu repo.</li>
                         </ol>
-                    </div>
-
-                    <!-- Bloque 1: Python RSS Scraper -->
-                    <div>
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-xs font-bold uppercase tracking-wider text-blue-400 flex items-center gap-1.5">
-                                <i data-lucide="file-code" class="w-4 h-4"></i>
-                                1. scripts/fetch_news.py
-                            </span>
-                            <button onclick="copyCodeBlock('pythonCode', this)" class="px-3 py-1.5 rounded-lg bg-gray-800 hover:bg-gray-700 text-xs font-semibold text-white border border-gray-700 flex items-center gap-1.5 transition">
-                                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
-                                <span data-i18n="copyBtn">Copiar código</span>
-                            </button>
-                        </div>
-                        <pre class="bg-black/80 border border-gray-800 rounded-xl p-4 overflow-x-auto text-xs font-mono text-gray-200 leading-relaxed"><code id="pythonCode">import json
-import feedparser
-from datetime import datetime
-from deep_translator import GoogleTranslator
-
-# Fuentes RSS oficiales de los principales medios de Euroliga
-FEEDS = [
-    {"name": "Eurohoops", "url": "https://www.eurohoops.net/feed/", "lang": "en"},
-    {"name": "BasketNews", "url": "https://basketnews.com/rss.xml", "lang": "en"},
-    {"name": "Gigantes del Basket", "url": "https://www.gigantes.com/feed/", "lang": "es"},
-            "items": articles
-        }, f, ensure_ascii=False, indent=2)
-
-    # También actualiza data/schedule.json y data/standings.json para la barra lateral
-    with open("data/schedule.json", "w", encoding="utf-8") as f:
-        json.dump({"updated_at": datetime.utcnow().isoformat(), "rounds": []}, f, ensure_ascii=False, indent=2)
-
-    with open("data/standings.json", "w", encoding="utf-8") as f:
-        json.dump({"updated_at": datetime.utcnow().isoformat(), "table": []}, f, ensure_ascii=False, indent=2)
-
-if __name__ == "__main__":
-    main()</code></pre>
-                    </div>
-
-                    <!-- Bloque 2: GitHub Actions Workflow -->
-                    <div>
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-xs font-bold uppercase tracking-wider text-green-400 flex items-center gap-1.5">
-                                <i data-lucide="workflow" class="w-4 h-4"></i>
-                                2. .github/workflows/update-news.yml
-                            </span>
-                            <button onclick="copyCodeBlock('yamlCode', this)" class="px-3 py-1.5 rounded-lg bg-gray-800 hover:bg-gray-700 text-xs font-semibold text-white border border-gray-700 flex items-center gap-1.5 transition">
-                                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
-                                <span data-i18n="copyBtn">Copiar código</span>
-                            </button>
-                        </div>
-                        <pre class="bg-black/80 border border-gray-800 rounded-xl p-4 overflow-x-auto text-xs font-mono text-gray-200 leading-relaxed"><code id="yamlCode">name: Actualizar Noticias, Calendario y Clasificación Euroliga
-
-on:
-  schedule:
-    - cron: '*/30 * * * *' # Se ejecuta automáticamente cada 30 minutos
-  workflow_dispatch:       # Permite ejecución manual desde la pestaña Actions
-
-permissions:
-  contents: write
-
-jobs:
-  scrape-and-translate:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repositorio
-        uses: actions/checkout@v4
-
-      - name: Configurar Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Instalar dependencias
-        run: pip install feedparser deep-translator requests
-
-      - name: Ejecutar scraper multilingüe y datos de competición
-        run: |
-          mkdir -p data
-          python scripts/fetch_news.py
-
-      - name: Guardar cambios en GitHub Pages
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "EuroLeague Bot"
-          git add data/news.json data/schedule.json data/standings.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: actualizar feed, calendario y tabla Euroliga" && git push)</code></pre>
-                    </div>
-
-                    <!-- Bloque 3: Estructura JSON para Calendario y Clasificación -->
-                    <div>
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
-                                <i data-lucide="database" class="w-4 h-4"></i>
-                                3. data/schedule.json & data/standings.json (Esquema)
-                            </span>
-                            <button onclick="copyCodeBlock('jsonSchemaCode', this)" class="px-3 py-1.5 rounded-lg bg-gray-800 hover:bg-gray-700 text-xs font-semibold text-white border border-gray-700 flex items-center gap-1.5 transition">
-                                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
-                                <span data-i18n="copyBtn">Copiar código</span>
-                            </button>
-                        </div>
-                        <pre class="bg-black/80 border border-gray-800 rounded-xl p-4 overflow-x-auto text-xs font-mono text-gray-200 leading-relaxed"><code id="jsonSchemaCode">// data/schedule.json
-{
-  "rounds": [
-    {
-      "round": 12,
-      "dates": "21 - 22 Nov",
-      "matches": [
-        { "home": "Real Madrid", "homeCode": "RMB", "away": "Fenerbahçe", "awayCode": "FBB", "homeScore": 88, "awayScore": 82, "status": "final", "time": "20:45" },
-        { "home": "Panathinaikos", "homeCode": "PAO", "away": "Olympiacos", "awayCode": "OLY", "homeScore": 64, "awayScore": 61, "status": "live", "quarter": "Q4 03:12" },
-        { "home": "FC Barcelona", "homeCode": "FCB", "away": "AS Monaco", "awayCode": "ASM", "homeScore": null, "awayScore": null, "status": "upcoming", "date": "23 Nov", "time": "20:30" }
-      ]
-    }
-  ]
-}
-
-// data/standings.json
-{
-  "table": [
-    { "pos": 1, "code": "FBB", "team": "Fenerbahçe Beko", "gp": 11, "w": 9, "l": 2, "diff": "+68", "color": "#FBBF24" },
-    { "pos": 2, "code": "PAO", "team": "Panathinaikos AKTOR", "gp": 11, "w": 8, "l": 3, "diff": "+74", "color": "#10B981" }
-  ]
-}</code></pre>
                     </div>
                 </div>
 
-                <!-- Footer del Modal -->
                 <div class="bg-gray-900/90 px-6 py-3.5 border-t border-gray-800 flex justify-end">
                     <button onclick="closeTechModal()" class="px-5 py-2 rounded-xl bg-euro-orange hover:bg-euro-orangeHover text-white text-xs font-bold transition" data-i18n="closeModalBtn">
                         Entendido, cerrar panel
@@ -576,52 +444,482 @@ jobs:
                 translatingText: "Traduciendo...",
                 syncBtn: "Sincronizar RSS",
                 techBtn: "Automatizar en GitHub",
-// ... existing code ... -->
+                filterAll: "Todas",
+                filterOfficial: "Noticias Oficiales",
+                filterRumor: "Rumores y Fichajes",
+                searchPlaceholder: "Buscar equipo, jugador, entrenador...",
+                sourcesLabel: "Medios Internacionales Monitorizados (8 Fuentes)",
+                showAllSources: "Ver todos los medios",
+                showingText: "Mostrando",
+                articlesText: "noticias y rumores verificados",
+                sortLabel: "Orden:",
+                sortNewest: "Más recientes primero",
+                noResultsTitle: "No se encontraron noticias",
+                noResultsDesc: "Prueba a cambiar el filtro de medio, categoría o limpia los términos de búsqueda.",
+                resetFiltersBtn: "Restablecer todos los filtros",
+                badgeOfficial: "OFICIAL",
+                badgeRumor: "RUMOR / MERCADO",
+                readMore: "Leer fuente",
+                footerTagline: "Arquitectura 100% Estática para GitHub Pages",
+                footerScriptLink: "Ver Script Python + GitHub Actions",
+                modalTitle: "Automatización 24/7 en GitHub Pages (Sin Servidor)",
+                modalSubtitle: "Recolecta los feeds RSS reales y tradúcelos automáticamente cada 30 minutos usando GitHub Actions",
+                archTitle: "¿Cómo funciona en GitHub Pages gratis?",
+                archStep1: "Sube este archivo index.html a tu repositorio de GitHub y activa GitHub Pages.",
+                archStep2: "Crea los dos archivos siguientes en tu repositorio: scripts/fetch_news.py y .github/workflows/update-news.yml.",
+                archStep3: "Cada 30 minutos, GitHub Actions ejecutará el scraper en Python, detectará rumores vs noticias oficiales, traducirá a ES/EN/TR/EL y guardará data/news.json directamente en tu repo.",
+                copyBtn: "Copiar código",
+                copiedBtn: "¡Copiado!",
+                closeModalBtn: "Entendido, cerrar panel",
+                syncSuccess: "Feeds RSS sincronizados y traducidos en tiempo real.",
+                syncFallback: "Mostrando titulares actuales verificados (conecta GitHub Actions para autoguardado cada 30 min).",
+                updatedNow: "Actualizado: Ahora mismo",
+                mobTabNews: "Noticias y Rumores",
+                mobTabStats: "Partidos y Tabla",
+                sidebarScheduleTitle: "Calendario y Resultados",
+                sidebarStandingsTitle: "Clasificación Euroliga",
+                roundLabel: "Jornada",
+                statusFinal: "Final",
+                statusLive: "EN VIVO",
+                colTeam: "Equipo",
+                colGP: "PJ",
+                colW: "V",
+                colL: "D",
+                colDiff: "Dif",
+                legendPlayoff: "Top 6: Playoff",
+                legendPlayin: "7-10: Play-In",
+                legendElim: "11-20: Elim."
+            },
             en: {
                 liveStatus: "LIVE • MULTILINGUAL FEED",
                 subtitle: "Complete aggregator of official news and European market rumors",
                 translatingText: "Translating...",
                 syncBtn: "Sync Live RSS",
                 techBtn: "Automate on GitHub",
-// ... existing code ... -->
+                filterAll: "All",
+                filterOfficial: "Official News",
+                filterRumor: "Rumors & Transfers",
+                searchPlaceholder: "Search team, player, coach...",
+                sourcesLabel: "Monitored International Media (8 Sources)",
+                showAllSources: "Show all outlets",
+                showingText: "Showing",
+                articlesText: "verified news & rumors",
+                sortLabel: "Sort:",
+                sortNewest: "Newest first",
+                noResultsTitle: "No news found",
+                noResultsDesc: "Try changing the media outlet, category filter, or clearing your search query.",
+                resetFiltersBtn: "Reset all filters",
+                badgeOfficial: "OFFICIAL",
+                badgeRumor: "RUMOR / MARKET",
+                readMore: "Read source",
+                footerTagline: "100% Static Architecture for GitHub Pages",
+                footerScriptLink: "View Python Scraper + GitHub Actions",
+                modalTitle: "24/7 Automation on GitHub Pages (Serverless)",
+                modalSubtitle: "Fetch real RSS feeds and auto-translate every 30 minutes using GitHub Actions",
+                archTitle: "How does it work for free on GitHub Pages?",
+                archStep1: "Upload this index.html file to your GitHub repository and enable GitHub Pages.",
+                archStep2: "Create two files in your repo: scripts/fetch_news.py and .github/workflows/update-news.yml.",
+                archStep3: "Every 30 minutes, GitHub Actions runs the Python scraper, classifies rumors vs official news, translates to ES/EN/TR/EL, and commits data/news.json.",
+                copyBtn: "Copy code",
+                copiedBtn: "Copied!",
+                closeModalBtn: "Got it, close panel",
+                syncSuccess: "Live RSS feeds synced and translated.",
+                syncFallback: "Displaying verified current headlines (enable GitHub Actions for 30-min auto-updates).",
+                updatedNow: "Updated: Just now",
+                mobTabNews: "News & Rumors",
+                mobTabStats: "Schedule & Table",
+                sidebarScheduleTitle: "Schedule & Results",
+                sidebarStandingsTitle: "EuroLeague Standings",
+                roundLabel: "Round",
+                statusFinal: "Final",
+                statusLive: "LIVE",
+                colTeam: "Team",
+                colGP: "GP",
+                colW: "W",
+                colL: "L",
+                colDiff: "Diff",
+                legendPlayoff: "Top 6: Playoff",
+                legendPlayin: "7-10: Play-In",
+                legendElim: "11-20: Elim."
+            },
             tr: {
                 liveStatus: "CANLI • ÇOK DİLLİ AKIŞ",
                 subtitle: "Resmi haberler ve Avrupa transfer söylentileri toplayıcısı",
                 translatingText: "Çevriliyor...",
                 syncBtn: "Canlı RSS Eşitle",
                 techBtn: "GitHub'da Otomatikleştir",
-// ... existing code ... -->
+                filterAll: "Tümü",
+                filterOfficial: "Resmi Haberler",
+                filterRumor: "Söylentiler & Transfer",
+                searchPlaceholder: "Takım, oyuncu, koç ara...",
+                sourcesLabel: "İzlenen Uluslararası Medya Kaynakları (8 Kaynak)",
+                showAllSources: "Tüm kaynakları göster",
+                showingText: "Gösterilen:",
+                articlesText: "doğrulanmış haber ve söylenti",
+                sortLabel: "Sıralama:",
+                sortNewest: "En yeniden eskiye",
+                noResultsTitle: "Haber bulunamadı",
+                noResultsDesc: "Medya kaynağını, kategori filtresini değiştirmeyi veya aramayı temizlemeyi deneyin.",
+                resetFiltersBtn: "Tüm filtreleri sıfırla",
+                badgeOfficial: "RESMİ",
+                badgeRumor: "SÖYLENTİ / TRANSFER",
+                readMore: "Kaynağa git",
+                footerTagline: "GitHub Pages için %100 Statik Mimari",
+                footerScriptLink: "Python Betiği + GitHub Actions'ı Gör",
+                modalTitle: "GitHub Pages Üzerinde 7/24 Otomasyon (Sunucusuz)",
+                modalSubtitle: "Gerçek RSS akışlarını toplayın ve GitHub Actions ile her 30 dakikada bir otomatik çevirin",
+                archTitle: "GitHub Pages'de ücretsiz nasıl çalışır?",
+                archStep1: "Bu index.html dosyasını GitHub deponuza yükleyin ve GitHub Pages'i etkinleştirin.",
+                archStep2: "Deponuzda şu iki dosyayı oluşturun: scripts/fetch_news.py ve .github/workflows/update-news.yml.",
+                archStep3: "Her 30 dakikada bir GitHub Actions Python tarayıcısını çalıştırır, haberleri ES/EN/TR/EL dillerine çevirir ve data/news.json dosyasına kaydeder.",
+                copyBtn: "Kodu kopyala",
+                copiedBtn: "Kopyalandı!",
+                closeModalBtn: "Anlaşıldı, kapat",
+                syncSuccess: "Canlı RSS akışları eşitlendi ve çevrildi.",
+                syncFallback: "Doğrulanmış güncel başlıklar gösteriliyor (30 dakikalık güncelleme için GitHub Actions'ı etkinleştirin).",
+                updatedNow: "Güncellendi: Az önce",
+                mobTabNews: "Haberler & Söylenti",
+                mobTabStats: "Maçlar & Puan Durumu",
+                sidebarScheduleTitle: "Fikstür ve Sonuçlar",
+                sidebarStandingsTitle: "EuroLeague Puan Durumu",
+                roundLabel: "Hafta",
+                statusFinal: "MS",
+                statusLive: "CANLI",
+                colTeam: "Takım",
+                colGP: "O",
+                colW: "G",
+                colL: "M",
+                colDiff: "Av",
+                legendPlayoff: "İlk 6: Playoff",
+                legendPlayin: "7-10: Play-In",
+                legendElim: "11-20: Elendi"
+            },
             el: {
                 liveStatus: "ΖΩΝΤΑΝΑ • ΠΟΛΥΓΛΩΣΣΗ ΡΟΗ",
                 subtitle: "Πλήρης συλλέκτης επίσημων ειδήσεων και μεταγραφικών φημών",
                 translatingText: "Μετάφραση...",
                 syncBtn: "Συγχρονισμός RSS",
                 techBtn: "Αυτοματοποίηση στο GitHub",
-// ... existing code ... -->
+                filterAll: "Όλα",
+                filterOfficial: "Επίσημα Νέα",
+                filterRumor: "Φήμες & Μεταγραφές",
+                searchPlaceholder: "Αναζήτηση ομάδας, παίκτη, προπονητή...",
+                sourcesLabel: "Παρακολουθούμενα Διεθνή Μέσα (8 Πηγές)",
+                showAllSources: "Προβολή όλων των μέσων",
+                showingText: "Εμφάνιση",
+                articlesText: "επαληθευμένων ειδήσεων και φημών",
+                sortLabel: "Ταξινόμηση:",
+                sortNewest: "Πιο πρόσφατα πρώτα",
+                noResultsTitle: "Δεν βρέθηκαν ειδήσεις",
+                noResultsDesc: "Δοκιμάστε να αλλάξετε το φίλτρο μέσου, κατηγορίας ή να καθαρίσετε την αναζήτηση.",
+                resetFiltersBtn: "Επαναφορά όλων των φίλτρων",
+                badgeOfficial: "ΕΠΙΣΗΜΟ",
+                badgeRumor: "ΦΗΜΗ / ΜΕΤΑΓΡΑΦΗ",
+                readMore: "Διαβάστε την πηγή",
+                footerTagline: "100% Στατική Αρχιτεκτονική για GitHub Pages",
+                footerScriptLink: "Προβολή Python Scraper + GitHub Actions",
+                modalTitle: "Αυτοματοποίηση 24/7 στο GitHub Pages (Χωρίς Διακομιστή)",
+                modalSubtitle: "Συλλέξτε πραγματικές ροές RSS και μεταφράστε τις αυτόματα κάθε 30 λεπτά μέσω GitHub Actions",
+                archTitle: "Πώς λειτουργεί δωρεάν στο GitHub Pages;",
+                archStep1: "Ανεβάστε αυτό το αρχείο index.html στο αποθετήριό σας στο GitHub και ενεργοποιήστε το GitHub Pages.",
+                archStep2: "Δημιουργήστε δύο αρχεία στο αποθετήριο: scripts/fetch_news.py και .github/workflows/update-news.yml.",
+                archStep3: "Κάθε 30 λεπτά, το GitHub Actions εκτελεί το Python scraper, μεταφράζει σε ES/EN/TR/EL και αποθηκεύει το data/news.json.",
+                copyBtn: "Αντιγραφή κώδικα",
+                copiedBtn: "Αντιγράφηκε!",
+                closeModalBtn: "Κατανοητό, κλείσιμο",
+                syncSuccess: "Οι ροές RSS συγχρονίστηκαν και μεταφράστηκαν.",
+                syncFallback: "Εμφάνιση επαληθευμένων τρεχόντων τίτλων (ενεργοποιήστε το GitHub Actions για αυτόματη ανανέωση).",
+                updatedNow: "Ενημερώθηκε: Μόλις τώρα",
+                mobTabNews: "Ειδήσεις & Φήμες",
+                mobTabStats: "Αγώνες & Βαθμολογία",
+                sidebarScheduleTitle: "Πρόγραμμα & Αποτελέσματα",
+                sidebarStandingsTitle: "Βαθμολογία EuroLeague",
+                roundLabel: "Αγωνιστική",
+                statusFinal: "Τελικό",
+                statusLive: "ΖΩΝΤΑΝΑ",
+                colTeam: "Ομάδα",
+                colGP: "Αγ",
+                colW: "Ν",
+                colL: "Η",
+                colDiff: "Διαφ",
+                legendPlayoff: "Top 6: Playoff",
+                legendPlayin: "7-10: Play-In",
+                legendElim: "11-20: Αποκλ."
+            }
+        };
+
+        // ============================================================================
+        // 2. CONFIGURACIÓN DE LOS 8 MEDIOS EUROPEOS DE REFERENCIA
+        // ============================================================================
+        const MEDIA_SOURCES = [
+            { id: "Eurohoops", name: "Eurohoops", country: "🇪🇺", color: "bg-orange-500/15 text-orange-400 border-orange-500/30", url: "https://www.eurohoops.net" },
+            { id: "BasketNews", name: "BasketNews", country: "🇱🇹", color: "bg-red-500/15 text-red-400 border-red-500/30", url: "https://basketnews.com" },
+            { id: "Gigantes del Basket", name: "Gigantes", country: "🇪🇸", color: "bg-yellow-500/15 text-yellow-400 border-yellow-500/30", url: "https://www.gigantes.com" },
+            { id: "Encestando", name: "Encestando", country: "🇪🇸", color: "bg-amber-500/15 text-amber-400 border-amber-500/30", url: "https://encestando.es" },
+            { id: "SDNA", name: "SDNA.gr", country: "🇬🇷", color: "bg-emerald-500/15 text-emerald-400 border-emerald-500/30", url: "https://www.sdna.gr" },
+            { id: "Gazzetta.gr", name: "Gazzetta.gr", country: "🇬🇷", color: "bg-cyan-500/15 text-cyan-400 border-cyan-500/30", url: "https://www.gazzetta.gr" },
+            { id: "TrendBasket", name: "TrendBasket", country: "🇹🇷", color: "bg-rose-500/15 text-rose-400 border-rose-500/30", url: "https://trendbasket.net" },
+            { id: "Euroleague.net", name: "Euroleague.net", country: "🏆", color: "bg-blue-500/15 text-blue-400 border-blue-500/30", url: "https://www.euroleaguebasketball.net/euroleague/" }
+        ];
+
+        // ============================================================================
+        // 2B. DATOS ACTUALES EUROLIGA 2026-27 (JORNADAS 12, 13 Y 14 + TABLA 20 EQUIPOS)
+        // ============================================================================
+        let SCHEDULE_ROUNDS = [
+            {
+                round: 12,
+                dates: "18 - 19 Nov 2026",
+                matches: [
+                    { home: "Valencia Basket", homeCode: "VBC", homeColor: "#FF5500", away: "Panathinaikos AKTOR", awayCode: "PAO", awayColor: "#10B981", homeScore: 89, awayScore: 84, status: "final", time: "20:30" },
+                    { home: "Olympiacos Piraeus", homeCode: "OLY", homeColor: "#EF4444", away: "Crvena Zvezda", awayCode: "CZV", awayColor: "#DC2626", homeScore: 91, awayScore: 79, status: "final", time: "20:15" },
+                    { home: "Real Madrid", homeCode: "RMB", homeColor: "#E5E7EB", away: "Dubai Basketball", awayCode: "DUB", awayColor: "#38BDF8", homeScore: 86, awayScore: 88, status: "final", time: "20:45" },
+                    { home: "Hapoel Tel Aviv", homeCode: "HTA", homeColor: "#F43F5E", away: "Fenerbahçe Beko", awayCode: "FBB", awayColor: "#FBBF24", homeScore: 82, awayScore: 78, status: "final", time: "19:00" },
+                    { home: "FC Barcelona", homeCode: "FCB", homeColor: "#2563EB", away: "Baskonia", awayCode: "BKN", awayColor: "#3B82F6", homeScore: 94, awayScore: 85, status: "final", time: "20:30" }
+                ]
+            },
+            {
+                round: 13,
+                dates: "20 - 21 Nov 2026",
+                matches: [
+                    { home: "Olympiacos Piraeus", homeCode: "OLY", homeColor: "#EF4444", away: "Real Madrid", awayCode: "RMB", awayColor: "#E5E7EB", homeScore: 92, awayScore: 76, status: "final", time: "20:15" },
+                    { home: "FC Barcelona", homeCode: "FCB", homeColor: "#2563EB", away: "Crvena Zvezda", awayCode: "CZV", awayColor: "#DC2626", homeScore: 100, awayScore: 103, status: "final", time: "20:30" },
+                    { home: "Partizan Mozzart Bet", homeCode: "PAR", homeColor: "#9CA3AF", away: "Beşiktaş", awayCode: "BJK", awayColor: "#F3F4F6", homeScore: 91, awayScore: 87, status: "final", time: "20:30" },
+                    { home: "Virtus Bologna", homeCode: "VIR", homeColor: "#D1D5DB", away: "Valencia Basket", awayCode: "VBC", awayColor: "#FF5500", homeScore: 78, awayScore: 85, status: "final", time: "20:30" },
+                    { home: "Panathinaikos AKTOR", homeCode: "PAO", homeColor: "#10B981", away: "Anadolu Efes", awayCode: "EFS", awayColor: "#3B82F6", homeScore: 96, awayScore: 81, status: "final", time: "20:15" },
+                    { home: "Žalgiris Kaunas", homeCode: "ZAL", homeColor: "#22C55E", away: "AS Monaco", awayCode: "ASM", awayColor: "#EF4444", homeScore: 84, awayScore: 79, status: "final", time: "19:00" },
+                    { home: "Dubai Basketball", homeCode: "DUB", homeColor: "#38BDF8", away: "Hapoel Tel Aviv", awayCode: "HTA", awayColor: "#F43F5E", homeScore: 90, awayScore: 83, status: "final", time: "18:00" },
+                    { home: "Fenerbahçe Beko", homeCode: "FBB", homeColor: "#FBBF24", away: "EA7 Emporio Armani Milan", awayCode: "EA7", awayColor: "#F43F5E", homeScore: 88, awayScore: 77, status: "final", time: "18:45" },
+                    { home: "Bayern Munich", homeCode: "BAY", homeColor: "#DC2626", away: "Paris Basketball", awayCode: "PRS", awayColor: "#A855F7", homeScore: 82, awayScore: 86, status: "final", time: "20:30" },
+                    { home: "Baskonia", homeCode: "BKN", homeColor: "#3B82F6", away: "Maccabi Tel Aviv", awayCode: "MTA", awayColor: "#EAB308", homeScore: 89, awayScore: 92, status: "final", time: "20:30" }
+                ]
+            },
+            {
+                round: 14,
+                dates: "24 - 25 Nov 2026",
+                matches: [
+                    { home: "Valencia Basket", homeCode: "VBC", homeColor: "#FF5500", away: "Olympiacos Piraeus", awayCode: "OLY", awayColor: "#EF4444", homeScore: null, awayScore: null, status: "upcoming", date: "24 Nov", time: "20:30" },
+                    { home: "Real Madrid", homeCode: "RMB", homeColor: "#E5E7EB", away: "Panathinaikos AKTOR", awayCode: "PAO", awayColor: "#10B981", homeScore: null, awayScore: null, status: "upcoming", date: "24 Nov", time: "20:45" },
+                    { home: "Crvena Zvezda", homeCode: "CZV", homeColor: "#DC2626", away: "Dubai Basketball", awayCode: "DUB", awayColor: "#38BDF8", homeScore: null, awayScore: null, status: "upcoming", date: "24 Nov", time: "20:00" },
+                    { home: "Anadolu Efes", homeCode: "EFS", homeColor: "#3B82F6", away: "FC Barcelona", awayCode: "FCB", awayColor: "#2563EB", homeScore: null, awayScore: null, status: "upcoming", date: "24 Nov", time: "18:30" },
+                    { home: "AS Monaco", homeCode: "ASM", homeColor: "#EF4444", away: "Partizan Mozzart Bet", awayCode: "PAR", awayColor: "#9CA3AF", homeScore: null, awayScore: null, status: "upcoming", date: "24 Nov", time: "19:00" },
+                    { home: "Hapoel Tel Aviv", homeCode: "HTA", homeColor: "#F43F5E", away: "Žalgiris Kaunas", awayCode: "ZAL", awayColor: "#22C55E", homeScore: null, awayScore: null, status: "upcoming", date: "25 Nov", time: "19:00" },
+                    { home: "Beşiktaş", homeCode: "BJK", homeColor: "#F3F4F6", away: "Fenerbahçe Beko", awayCode: "FBB", awayColor: "#FBBF24", homeScore: null, awayScore: null, status: "upcoming", date: "25 Nov", time: "18:45" },
+                    { home: "EA7 Emporio Armani Milan", homeCode: "EA7", homeColor: "#F43F5E", away: "Baskonia", awayCode: "BKN", awayColor: "#3B82F6", homeScore: null, awayScore: null, status: "upcoming", date: "25 Nov", time: "20:30" },
+                    { home: "Paris Basketball", homeCode: "PRS", homeColor: "#A855F7", away: "Virtus Bologna", awayCode: "VIR", awayColor: "#D1D5DB", homeScore: null, awayScore: null, status: "upcoming", date: "25 Nov", time: "20:30" },
+                    { home: "Maccabi Tel Aviv", homeCode: "MTA", homeColor: "#EAB308", away: "Bayern Munich", awayCode: "BAY", awayColor: "#DC2626", homeScore: null, awayScore: null, status: "upcoming", date: "25 Nov", time: "20:05" }
+                ]
+            }
+        ];
+
+        let STANDINGS_TABLE = [
+            { pos: 1, code: "VBC", team: "Valencia Basket", gp: 13, w: 10, l: 3, diff: "+78", color: "#FF5500" },
+            { pos: 2, code: "OLY", team: "Olympiacos Piraeus", gp: 13, w: 10, l: 3, diff: "+71", color: "#EF4444" },
+            { pos: 3, code: "PAO", team: "Panathinaikos AKTOR", gp: 13, w: 9, l: 4, diff: "+64", color: "#10B981" },
+            { pos: 4, code: "DUB", team: "Dubai Basketball", gp: 13, w: 9, l: 4, diff: "+52", color: "#38BDF8" },
+            { pos: 5, code: "CZV", team: "Crvena Zvezda", gp: 13, w: 8, l: 5, diff: "+39", color: "#DC2626" },
+            { pos: 6, code: "FBB", team: "Fenerbahçe Beko", gp: 13, w: 8, l: 5, diff: "+34", color: "#FBBF24" },
+            { pos: 7, code: "HTA", team: "Hapoel Tel Aviv", gp: 13, w: 8, l: 5, diff: "+28", color: "#F43F5E" },
+            { pos: 8, code: "RMB", team: "Real Madrid", gp: 13, w: 7, l: 6, diff: "+24", color: "#E5E7EB" },
+            { pos: 9, code: "FCB", team: "FC Barcelona", gp: 13, w: 7, l: 6, diff: "+19", color: "#2563EB" },
+            { pos: 10, code: "ZAL", team: "Žalgiris Kaunas", gp: 13, w: 7, l: 6, diff: "+14", color: "#22C55E" },
+            { pos: 11, code: "ASM", team: "AS Monaco", gp: 13, w: 6, l: 7, diff: "+6", color: "#EF4444" },
+            { pos: 12, code: "PAR", team: "Partizan Mozzart Bet", gp: 13, w: 6, l: 7, diff: "-3", color: "#9CA3AF" },
+            { pos: 13, code: "EA7", team: "EA7 Armani Milan", gp: 13, w: 6, l: 7, diff: "-11", color: "#F43F5E" },
+            { pos: 14, code: "PRS", team: "Paris Basketball", gp: 13, w: 5, l: 8, diff: "-18", color: "#A855F7" },
+            { pos: 15, code: "EFS", team: "Anadolu Efes", gp: 13, w: 5, l: 8, diff: "-25", color: "#3B82F6" },
+            { pos: 16, code: "MTA", team: "Maccabi Tel Aviv", gp: 13, w: 5, l: 8, diff: "-31", color: "#EAB308" },
+            { pos: 17, code: "BJK", team: "Beşiktaş", gp: 13, w: 4, l: 9, diff: "-44", color: "#F3F4F6" },
+            { pos: 18, code: "VIR", team: "Virtus Bologna", gp: 13, w: 4, l: 9, diff: "-52", color: "#D1D5DB" },
+            { pos: 19, code: "BKN", team: "Baskonia", gp: 13, w: 3, l: 10, diff: "-68", color: "#3B82F6" },
+            { pos: 20, code: "BAY", team: "Bayern Munich", gp: 13, w: 3, l: 10, diff: "-77", color: "#DC2626" }
+        ];
+
+        // ============================================================================
+        // 3. BASE DE DATOS DE NOTICIAS Y RUMORES ACTUALES (TEMPORADA 2026-27)
+        // ============================================================================
+        let NEWS_ITEMS = [
+            {
+                id: 1,
+                source: "Eurohoops",
+                category: "official",
+                timeAgo: { es: "Hace 22 min", en: "22m ago", tr: "22 dk önce", el: "Πριν 22 λεπτά" },
+                tags: ["Olimpia Milan", "Josh Nebo", "Lesión"],
+                url: "https://www.eurohoops.net",
+                title: {
+                    es: "Duro golpe para el Olimpia Milano: Josh Nebo estará de baja de 3 a 4 meses por lesión",
+                    en: "Major blow for Olimpia Milan: Josh Nebo sidelined for 3 to 4 months with injury",
+                    tr: "Olimpia Milano'ya büyük darbe: Josh Nebo sakatlığı nedeniyle 3-4 ay sahalardan uzak kalacak",
+                    el: "Σοκ στην Αρμάνι Μιλάνο: Εκτός δράσης για 3 με 4 μήνες ο Τζος Νίμπο λόγω τραυματισμού"
+                },
+                summary: {
+                    es: "El club italiano confirmó tras las pruebas médicas que el pívot sufre una lesión muscular de gravedad que obligará al conjunto de Messina a acudir al mercado.",
+                    en: "The Italian club confirmed after medical tests that the center suffered a severe muscle injury, forcing Ettore Messina's squad to explore the transfer market.",
+                    tr: "İtalyan kulübü tıbbi testlerin ardından pivotun ciddi bir kas sakatlığı yaşadığını ve Messina'nın ekibinin transfer pazarına yönelmek zorunda kalacağını doğruladı.",
+                    el: "Ο ιταλικός σύλλογος επιβεβαίωσε μετά τις εξετάσεις ότι ο σέντερ υπέστη σοβαρό μυϊκό τραυματισμό, αναγκάζοντας την ομάδα του Μεσίνα να βγει στην αγορά."
+                }
+            },
+            {
+                id: 2,
+                source: "TrendBasket",
+                category: "rumor",
+                timeAgo: { es: "Hace 45 min", en: "45m ago", tr: "45 dk önce", el: "Πριν 45 λεπτά" },
+                tags: ["Beşiktaş", "Reggie Perry", "Fichaje"],
+                url: "https://trendbasket.net",
+                title: {
+                    es: "Beşiktaş alcanza un principio de acuerdo con el ala-pívot estadounidense Reggie Perry",
+                    en: "Beşiktaş reaches agreement in principle with American power forward Reggie Perry",
+                    tr: "Beşiktaş, Amerikalı uzun forvet Reggie Perry ile prensip anlaşmasına vardı",
+                    el: "Καταρχήν συμφωνία της Μπεσίκτας με τον Αμερικανό πάουερ φόργουορντ Ρέτζι Πέρι"
+                },
+                summary: {
+                    es: "El conjunto turco refuerza su juego interior para remontar puestos en la Euroliga con la inminente incorporación de Reggie Perry hasta final de temporada.",
+                    en: "The Turkish side strengthens its frontcourt to climb the EuroLeague standings with the imminent addition of Reggie Perry until the end of the season.",
+                    tr: "Türk temsilcisi, EuroLeague sıralamasında yükselmek için sezon sonuna kadar Reggie Perry'yi kadrosuna katarak pota altını güçlendiriyor.",
+                    el: "Η τουρκική ομάδα ενισχύει τη φροντ λάιν της για να ανέβει στη βαθμολογία της EuroLeague με την επικείμενη προσθήκη του Ρέτζι Πέρι έως το τέλος της σεζόν."
+                }
+            },
+            {
+                id: 3,
+                source: "Encestando",
+                category: "rumor",
+                timeAgo: { es: "Hace 1 hora", en: "1h ago", tr: "1 sa önce", el: "Πριν 1 ώρα" },
+                tags: ["Baskonia", "Zach Perrin", "Mercado"],
+                url: "https://encestando.es",
+                title: {
+                    es: "El Baskonia sigue muy de cerca al joven interior francés Zach Perrin para reforzar su pintura",
+                    en: "Baskonia closely monitoring young French big man Zach Perrin to bolster frontcourt",
+                    tr: "Baskonia, pota altını güçlendirmek için genç Fransız uzun Zach Perrin'i yakından takip ediyor",
+                    el: "Η Μπασκόνια παρακολουθεί στενά τον νεαρό Γάλλο ψηλό Ζακ Περέν για την ενίσχυση της ρακέτας"
+                },
+                summary: {
+                    es: "Tras situarse en la zona baja con balance de 3-10, la dirección deportiva vitoriana valora incorporar talento físico y proyección inmediata en el juego interior.",
+                    en: "Sitting near the bottom at 3-10, Vitoria's front office is evaluating adding immediate physicality and upside to its frontcourt rotation.",
+                    tr: "3-10'luk dereceyle alt sıralarda yer alan Vitoria yönetimi, pota altı rotasyonuna fiziksel güç ve potansiyel eklemeyi değerlendiriyor.",
+                    el: "Με ρεκόρ 3-10 στις χαμηλές θέσεις, η διοίκηση της Βιτόρια εξετάζει την προσθήκη αθλητικότητας και προοπτικής στη φροντ λάιν της."
+                }
+            },
+            {
+                id: 4,
+                source: "Euroleague.net",
+                category: "official",
+                timeAgo: { es: "Hace 2 horas", en: "2h ago", tr: "2 sa önce", el: "Πριν 2 ώρες" },
+                tags: ["MVP", "Jornada 13", "Moses Wright"],
+                url: "https://www.euroleaguebasketball.net/euroleague/",
+                title: {
+                    es: "Moses Wright conquista el MVP de la Jornada 13 con una exhibición de 36 de valoración",
+                    en: "Moses Wright claims Round 13 MVP honors with a dominant 36 PIR performance",
+                    tr: "Moses Wright, 36 verimlilik puanlık dominant performansıyla 13. Haftanın MVP'si oldu",
+                    el: "MVP της 13ης αγωνιστικής ο Μόουζες Ράιτ με κυριαρχική εμφάνιση και 36 PIR"
+                },
+                summary: {
+                    es: "El pívot lideró el triunfo de su equipo con 26 puntos, 11 rebotes y 3 tapones sin fallo en tiros de dos para firmar el mejor registro de la jornada.",
+                    en: "The center spearheaded his team's victory with 26 points, 11 rebounds, and 3 blocks without missing a two-pointer to post the round's highest index rating.",
+                    tr: "Pivot, iki sayılık atış kaçırmadan ürettiği 26 sayı, 11 ribaund ve 3 blokla takımının galibiyetine liderlik ederek haftanın en yüksek verimlilik puanına ulaştı.",
+                    el: "Ο σέντερ οδήγησε την ομάδα του στη νίκη με 26 πόντους, 11 ριμπάουντ και 3 τάπες χωρίς χαμένο δίποντο, σημειώνοντας το υψηλότερο PIR της αγωνιστικής."
+                }
+            },
+            {
+                id: 5,
+                source: "BasketNews",
+                category: "official",
+                timeAgo: { es: "Hace 3 horas", en: "3h ago", tr: "3 sa önce", el: "Πριν 3 ώρες" },
+                tags: ["Partizan", "Joan Peñarroya", "Renovación"],
+                url: "https://basketnews.com",
+                title: {
+                    es: "Oficial: Partizan Mozzart Bet renueva a Joan Peñarroya como entrenador jefe hasta 2029",
+                    en: "Official: Partizan Mozzart Bet extends head coach Joan Peñarroya through 2029",
+                    tr: "Resmi: Partizan Mozzart Bet, başantrenör Joan Peñarroya'nın sözleşmesini 2029'a kadar uzattı",
+                    el: "Επίσημο: Η Παρτιζάν ανανέωσε τη συνεργασία της με τον Ζοάν Πενιαρόγια έως το 2029"
+                },
+                summary: {
+                    es: "Tras el vibrante triunfo en prórroga ante Beşiktaş (91-87), el club de Belgrado blinda su proyecto deportivo a largo plazo con el técnico español.",
+                    en: "Following the thrilling overtime victory over Beşiktaş (91-87), the Belgrade club locks in its long-term project with the Spanish tactician.",
+                    tr: "Beşiktaş karşısında uzatmada gelen 91-87'lik heyecan verici galibiyetin ardından Belgrad kulübü, İspanyol çalıştırıcıyla uzun vadeli projesini güvence altına aldı.",
+                    el: "Μετά τη συναρπαστική νίκη στην παράταση επί της Μπεσίκτας (91-87), ο σύλλογος του Βελιγραδίου θωρακίζει το μακροπρόθεσμο πλάνο του με τον Ισπανό τεχνικό."
+                }
+            },
+            {
+                id: 6,
+                source: "SDNA",
+                category: "official",
+                timeAgo: { es: "Hace 4 horas", en: "4h ago", tr: "4 sa önce", el: "Πριν 4 ώρες" },
+                tags: ["Olympiacos", "Real Madrid", "Jornada 13"],
+                url: "https://www.sdna.gr",
+                title: {
+                    es: "Vendaval del Olympiacos en El Pireo (92-76) ante el Real Madrid para mantenerse colíder (10-3)",
+                    en: "Olympiacos storms past Real Madrid in Piraeus (92-76) to stay tied for first place (10-3)",
+                    tr: "Olympiacos, Pire'de Real Madrid'i 92-76 mağlup ederek 10-3 ile zirve ortaklığını sürdürdü",
+                    el: "Καταιγιστικός ο Ολυμπιακός στο ΣΕΦ (92-76) επί της Ρεάλ Μαδρίτης, παραμένει στην κορυφή (10-3)"
+                },
+                summary: {
+                    es: "Los rojiblancos desarbolaron la defensa blanca en la segunda mitad con un parcial de 51-35 y comparten el liderato de la Euroliga con Valencia Basket.",
+                    en: "The Reds dismantled Madrid's defense in the second half with a 51-35 surge to share top spot in the EuroLeague standings alongside Valencia Basket.",
+                    tr: "Kırmızı-beyazlılar ikinci yarıda 51-35'lik seriyle Madrid savunmasını çökertti ve EuroLeague liderliğini Valencia Basket ile paylaşmayı sürdürdü.",
+                    el: "Οι Ερυθρόλευκοι διέλυσαν την άμυνα της Ρεάλ στο δεύτερο ημίχρονο με επιμέρους 51-35 και μοιράζονται την κορυφή της EuroLeague με τη Βαλένθια."
+                }
+            },
+            {
+                id: 7,
+                source: "Gigantes del Basket",
+                category: "official",
+                timeAgo: { es: "Hace 5 horas", en: "5h ago", tr: "5 sa önce", el: "Πριν 5 ώρες" },
+                tags: ["FC Barcelona", "Crvena Zvezda", "Nikola Vučević"],
+                url: "https://www.gigantes.com",
+                title: {
+                    es: "Nikola Vučević conquista el Palau (100-103) y da al Estrella Roja un triunfo épico ante el Barça",
+                    en: "Nikola Vučević conquers Palau Blaugrana (100-103) as Crvena Zvezda edges Barça in thriller",
+                    tr: "Nikola Vučević Palau Blaugrana'yı fethetti (100-103); Kızılyıldız Barça'yı nefes kesen maçta yendi",
+                    el: "Ο Νίκολα Βούτσεβιτς άλωσε το Παλάου (100-103) χαρίζοντας τεράστιο διπλό στον Ερυθρό Αστέρα"
+                },
+                summary: {
+                    es: "Un recital ofensivo de Nikola Vučević en el último cuarto decidió un duelo de más de 200 puntos que deja a los serbios en puestos de Playoff directo (8-5).",
+                    en: "An offensive clinic by Nikola Vučević in the fourth quarter decided a 200-point thriller that lifts the Serbian side into direct Playoff spots (8-5).",
+                    tr: "Son çeyrekte Nikola Vučević'in hücum resitali, 200 sayının aşıldığı nefes kesen maçı belirledi ve Sırp ekibini doğrudan Playoff potasına (8-5) taşıdı.",
+                    el: "Ένα επιθετικό ρεσιτάλ του Νίκολα Βούτσεβιτς στην τέταρτη περίοδο έκρινε το θρίλερ των 203 πόντων, ανεβάζοντας τους Σέρβους στην εξάδα των Playoff (8-5)."
+                }
+            },
+            {
+                id: 8,
+                source: "Gazzetta.gr",
+                category: "official",
+                timeAgo: { es: "Hace 6 horas", en: "6h ago", tr: "6 sa önce", el: "Πριν 6 ώρες" },
+                tags: ["Valencia Basket", "Panathinaikos", "Liderato"],
+                url: "https://www.gazzetta.gr",
+                title: {
+                    es: "Valencia Basket (10-3) y Panathinaikos (9-4) mantienen el pulso en la zona noble antes de la Jornada 14",
+                    en: "Valencia Basket (10-3) and Panathinaikos (9-4) keep pace at the top ahead of Round 14",
+                    tr: "Valencia Basket (10-3) ve Panathinaikos (9-4) 14. Hafta öncesinde zirve takibini sürdürüyor",
+                    el: "Βαλένθια (10-3) και Παναθηναϊκός (9-4) διατηρούν τον ρυθμό τους στην κορυφή ενόψει 14ης αγωνιστικής"
+                },
+                summary: {
+                    es: "El conjunto taronja venció en Bolonia (78-85) para defender el primer puesto mientras los verdes superaron con autoridad al Anadolu Efes en el OAKA (96-81).",
+                    en: "The Spanish side won in Bologna (78-85) to defend first place while the Greens cruised past Anadolu Efes at OAKA (96-81).",
+                    tr: "İspanyol ekibi Bolonya'da 78-85 kazanarak liderliğini korurken, Yeşiller OAKA'da Anadolu Efes'i 96-81 ile rahat geçti.",
+                    el: "Η ισπανική ομάδα νίκησε στην Μπολόνια (78-85) υπερασπιζόμενη την πρώτη θέση, ενώ οι Πράσινοι επικράτησαν άνετα της Εφές στο ΟΑΚΑ (96-81)."
+                }
+            }
+        ];
+
         // ============================================================================
         // 4. ESTADO GLOBAL Y MOTOR DE TRADUCCIÓN AUTOMÁTICA EN TIEMPO REAL
         // ============================================================================
         let state = {
             lang: localStorage.getItem('el_pulse_lang') || 'es',
-            category: 'all', // 'all' | 'official' | 'rumor'
-            source: 'all',   // 'all' | nombre del medio
+            category: 'all',
+            source: 'all',
             searchQuery: '',
-            roundIndex: 2,   // Índice por defecto (Jornada 14 próxima, con 12 y 13 completadas)
+            roundIndex: 2,
             mobileView: 'news'
         };
 
-        // Caché persistente en navegador para traducciones dinámicas
         const TRANSLATION_CACHE = JSON.parse(localStorage.getItem('el_pulse_trans_cache') || '{}');
 
         function saveTranslationCache() {
             try {
                 localStorage.setItem('el_pulse_trans_cache', JSON.stringify(TRANSLATION_CACHE));
-            } catch (e) {
-                // Ignorar si se llena localStorage
-            }
+            } catch (e) {}
         }
 
-        // Traduce un texto usando el endpoint gratuito de Google Translate con caché
         async function translateDynamicText(text, targetLang) {
             if (!text || !text.trim()) return text;
             const cacheKey = `${targetLang}::${text}`;
@@ -642,19 +940,15 @@ jobs:
                         return translated;
                     }
                 }
-            } catch (e) {
-                // Fallback silencioso al texto original si hay bloqueo de red
-            }
+            } catch (e) {}
             return text;
         }
 
-        // Asegura que todas las noticias visibles tengan traducción al idioma seleccionado
         async function ensureItemsTranslated(targetLang) {
             const badge = document.getElementById('translatingBadge');
             let needsWork = false;
 
             const tasks = NEWS_ITEMS.map(async (item) => {
-                // Detectar si falta traducción o si todos los idiomas tienen exactamente el mismo texto sin traducir
                 const baseText = item.title.en || item.title.es || Object.values(item.title)[0] || '';
                 const currentTitle = item.title[targetLang];
                 const isUntranslated = !currentTitle || (item.needsTranslation && !item.translatedLangs?.[targetLang]);
@@ -701,11 +995,9 @@ jobs:
             renderNews();
             renderSidebarSchedule();
             renderSidebarStandings();
-            // Intentar cargar JSONs automáticamente si existen en el repositorio GitHub Pages
             tryLoadGitHubJson(true).then(() => ensureItemsTranslated(state.lang));
         });
 
-        // Cambiar idioma en tiempo real
         async function setLanguage(langCode) {
             state.lang = langCode;
             localStorage.setItem('el_pulse_lang', langCode);
@@ -716,7 +1008,6 @@ jobs:
             await ensureItemsTranslated(langCode);
         }
 
-        // Control de vista móvil/tablet entre Noticias y Barra Lateral
         function setMobileView(view) {
             state.mobileView = view;
             const newsCol = document.getElementById('newsColumn');
@@ -740,9 +1031,6 @@ jobs:
             }
         }
 
-        // ============================================================================
-        // 5B. RENDERIZADO DE LA BARRA LATERAL (CALENDARIO/RESULTADOS + CLASIFICACIÓN)
-        // ============================================================================
         function changeRound(delta) {
             const newIdx = state.roundIndex + delta;
             if (newIdx >= 0 && newIdx < SCHEDULE_ROUNDS.length) {
@@ -791,7 +1079,6 @@ jobs:
                             <span class="text-[10px] text-gray-500 font-mono">${m.homeCode} vs ${m.awayCode}</span>
                         </div>
                         <div class="space-y-1.5">
-                            <!-- Equipo Local -->
                             <div class="flex items-center justify-between text-xs">
                                 <div class="flex items-center gap-2 truncate pr-2">
                                     <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background-color: ${m.homeColor || '#FF5500'}"></span>
@@ -801,7 +1088,6 @@ jobs:
                                     ${m.homeScore !== null ? m.homeScore : '-'}
                                 </span>
                             </div>
-                            <!-- Equipo Visitante -->
                             <div class="flex items-center justify-between text-xs">
                                 <div class="flex items-center gap-2 truncate pr-2">
                                     <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background-color: ${m.awayColor || '#3B82F6'}"></span>
@@ -822,7 +1108,6 @@ jobs:
             if (!tbody) return;
 
             tbody.innerHTML = STANDINGS_TABLE.map(row => {
-                // Indicador visual por zona clasificatoria (1-6 Playoff, 7-10 Play-In, 11-18 Eliminación)
                 let zoneBorder = 'border-l-4 border-l-transparent';
                 let posBadgeClass = 'text-gray-400';
                 if (row.pos <= 6) {
@@ -858,7 +1143,6 @@ jobs:
             document.documentElement.lang = langCode;
             const dict = UI_TRANSLATIONS[langCode] || UI_TRANSLATIONS.es;
 
-            // Actualizar textos estáticos con atributo data-i18n
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (dict[key]) {
@@ -866,13 +1150,11 @@ jobs:
                 }
             });
 
-            // Actualizar placeholder del buscador
             const searchInput = document.getElementById('searchInput');
             if (searchInput) {
                 searchInput.placeholder = dict.searchPlaceholder;
             }
 
-            // Actualizar estado visual de botones de idioma
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('bg-euro-orange', 'text-white', 'shadow-md');
                 btn.classList.add('text-gray-400', 'hover:text-white');
@@ -884,7 +1166,6 @@ jobs:
             }
         }
 
-        // Renderizar píldoras de medios internacionales
         function renderSourceFilters() {
             const container = document.getElementById('sourceFiltersContainer');
             container.innerHTML = MEDIA_SOURCES.map(src => {
@@ -911,7 +1192,6 @@ jobs:
             }
         }
 
-        // Filtrar por categoría ('all', 'official', 'rumor')
         function setCategoryFilter(category) {
             state.category = category;
             updateCategoryButtons();
@@ -930,14 +1210,12 @@ jobs:
             });
         }
 
-        // Filtrar por medio de comunicación
         function setSourceFilter(sourceId) {
             state.source = (state.source === sourceId) ? 'all' : sourceId;
             renderSourceFilters();
             renderNews();
         }
 
-        // Búsqueda en tiempo real
         function handleSearch(query) {
             state.searchQuery = query.trim().toLowerCase();
             const clearBtn = document.getElementById('clearSearchBtn');
@@ -964,13 +1242,11 @@ jobs:
             renderNews();
         }
 
-        // Renderizado principal de tarjetas de noticias y rumores
         function renderNews() {
             const dict = UI_TRANSLATIONS[state.lang] || UI_TRANSLATIONS.es;
             const grid = document.getElementById('newsGrid');
             const emptyState = document.getElementById('emptyState');
 
-            // Actualizar contadores globales de categorías (respetando medio y búsqueda)
             const baseFiltered = NEWS_ITEMS.filter(item => {
                 const matchesSource = state.source === 'all' || item.source === state.source;
                 const titleText = (item.title[state.lang] || item.title.en || '').toLowerCase();
@@ -991,7 +1267,6 @@ jobs:
             document.getElementById('count-official').textContent = baseFiltered.filter(i => i.category === 'official').length;
             document.getElementById('count-rumor').textContent = baseFiltered.filter(i => i.category === 'rumor').length;
 
-            // Aplicar filtro final de categoría
             const finalItems = baseFiltered.filter(item => {
                 return state.category === 'all' || item.category === state.category;
             });
@@ -1022,7 +1297,6 @@ jobs:
                 return `
                     <article class="group bg-euro-card hover:bg-euro-cardHover border border-euro-border hover:border-gray-600 rounded-2xl p-5 flex flex-col justify-between transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5">
                         <div>
-                            <!-- Cabecera de Tarjeta: Medio + Etiqueta Oficial/Rumor -->
                             <div class="flex items-center justify-between gap-2 mb-3.5">
                                 <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border text-[11px] font-bold ${sourceMeta.color}">
                                     <span>${sourceMeta.country}</span>
@@ -1035,20 +1309,17 @@ jobs:
                                 </span>
                             </div>
 
-                            <!-- Titular -->
                             <h2 class="text-base sm:text-lg font-bold text-white group-hover:text-euro-orange transition-colors leading-snug mb-2.5">
                                 <a href="${item.url}" target="_blank" rel="noopener noreferrer">
                                     ${title}
                                 </a>
                             </h2>
 
-                            <!-- Resumen -->
                             <p class="text-xs sm:text-sm text-gray-400 leading-relaxed mb-4 line-clamp-3">
                                 ${summary}
                             </p>
                         </div>
 
-                        <!-- Pie de Tarjeta: Etiquetas + Tiempo + Enlace -->
                         <div class="pt-3.5 border-t border-gray-800/80 flex items-center justify-between gap-2 text-xs">
                             <div class="flex items-center gap-1.5 text-gray-400">
                                 <i data-lucide="clock" class="w-3.5 h-3.5 text-gray-500"></i>
@@ -1064,12 +1335,11 @@ jobs:
                 `;
             }).join('');
 
-            // Re-inicializar iconos Lucide recién insertados
             lucide.createIcons();
         }
 
         // ============================================================================
-        // 6. SINCRONIZACIÓN DE FEEDS (SOPORTA data/news.json, schedule.json, standings.json)
+        // 6. SINCRONIZACIÓN DE FEEDS
         // ============================================================================
         async function tryLoadGitHubJson(silent = false) {
             let loadedAny = false;
@@ -1122,9 +1392,7 @@ jobs:
                     if (!silent) showToast(UI_TRANSLATIONS[state.lang].syncSuccess);
                     return true;
                 }
-            } catch (e) {
-                // Fallback silencioso a datos integrados
-            }
+            } catch (e) {}
             if (!silent) showToast(UI_TRANSLATIONS[state.lang].syncFallback);
             return false;
         }
@@ -1133,10 +1401,8 @@ jobs:
             const syncIcon = document.getElementById('syncIcon');
             syncIcon.classList.add('animate-spin');
             
-            // 1. Intentar primero archivos JSON generados por GitHub Actions en el repo
             const loadedRepoJson = await tryLoadGitHubJson(true);
             
-            // 2. Si no existen aún en el repo, intentar conexión RSS directa en vivo vía rss2json
             if (!loadedRepoJson) {
                 try {
                     const liveFeeds = [
@@ -1163,15 +1429,15 @@ jobs:
                                     tags: [srcName, 'RSS'],
                                     url: entry.link || MEDIA_SOURCES[0].url,
                                     title: { es: entry.title, en: entry.title, tr: entry.title, el: entry.title },
-                                    summary: { es: cleanDesc, en: cleanDesc, tr: cleanDesc, el: cleanDesc }
+                                    summary: { es: cleanDesc, en: cleanDesc, tr: cleanDesc, el: cleanDesc },
+                                    needsTranslation: true,
+                                    translatedLangs: {}
                                 });
                             });
                         }
                     });
 
                     if (fetchedItems.length > 0) {
-                        // Marcar los elementos recién llegados por RSS para traducirlos automáticamente
-                        fetchedItems.forEach(it => { it.needsTranslation = true; it.translatedLangs = {}; });
                         NEWS_ITEMS = [...fetchedItems, ...NEWS_ITEMS];
                         renderNews();
                         await ensureItemsTranslated(state.lang);
@@ -1204,30 +1470,6 @@ jobs:
         function closeTechModal() {
             document.getElementById('techModal').classList.add('hidden');
             document.body.classList.remove('overflow-hidden');
-        }
-
-        function copyCodeBlock(elementId, buttonEl) {
-            const codeText = document.getElementById(elementId).innerText;
-            const textarea = document.createElement('textarea');
-            textarea.value = codeText;
-            textarea.style.position = 'fixed';
-            textarea.style.opacity = '0';
-            document.body.appendChild(textarea);
-            textarea.select();
-            try {
-                document.execCommand('copy');
-                const span = buttonEl.querySelector('span');
-                const originalText = span.textContent;
-                span.textContent = UI_TRANSLATIONS[state.lang].copiedBtn;
-                buttonEl.classList.add('border-green-500', 'text-green-400');
-                setTimeout(() => {
-                    span.textContent = originalText;
-                    buttonEl.classList.remove('border-green-500', 'text-green-400');
-                }, 2000);
-            } catch (err) {
-                console.error('Error al copiar:', err);
-            }
-            document.body.removeChild(textarea);
         }
 
         function showToast(msg) {

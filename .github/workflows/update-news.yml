@@ -1,4 +1,4 @@
-name: Actualizar Noticias y Rumores Euroliga (24/7)
+name: Actualizar Noticias y Rumores Euroliga
 
 on:
 schedule:

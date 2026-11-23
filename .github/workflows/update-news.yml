@@ -1,21 +1,4 @@
-name: Actualizar Noticias y Rumores Euroliga
-
-on:
-schedule:
-- cron: '*/30 * * * *'
-workflow_dispatch:
-
-permissions:
-contents: write
-
-jobs:
-update-euroleague-feed:
-runs-on: ubuntu-latest
-steps:
-- name: Descargar repositorio
-uses: actions/checkout@v4
-
-  - name: Configurar Python 3.11
+- name: Configurar Python 3.11
     uses: actions/setup-python@v5
     with:
       python-version: '3.11'

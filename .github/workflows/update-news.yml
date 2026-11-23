@@ -1,36 +1,34 @@
-name: Actualizar Noticias, Calendario y Clasificación Euroliga
+name: Actualizar Noticias y Rumores Euroliga (24/7)
 
 on:
-  schedule:
-    - cron: '*/30 * * * *' # Se ejecuta automáticamente cada 30 minutos
-  workflow_dispatch:       # Permite ejecución manual desde la pestaña Actions
+schedule:
+- cron: '*/30 * * * *'
+workflow_dispatch:
 
 permissions:
-  contents: write
+contents: write
 
 jobs:
-  scrape-and-translate:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repositorio
-        uses: actions/checkout@v4
+update-euroleague-feed:
+runs-on: ubuntu-latest
+steps:
+- name: Descargar repositorio
+uses: actions/checkout@v4
 
-      - name: Configurar Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
+  - name: Configurar Python 3.11
+    uses: actions/setup-python@v5
+    with:
+      python-version: '3.11'
 
-      - name: Instalar dependencias
-        run: pip install feedparser deep-translator requests
+  - name: Instalar dependencias de RSS y traducción
+    run: pip install feedparser deep-translator requests
 
-      - name: Ejecutar scraper multilingüe y datos de competición
-        run: |
-          mkdir -p data
-          python scripts/fetch_news.py
+  - name: Recolectar y traducir noticias de los 8 medios
+    run: python scripts/fetch_news.py
 
-      - name: Guardar cambios en GitHub Pages
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "EuroLeague Bot"
-          git add data/news.json data/schedule.json data/standings.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: actualizar feed, calendario y tabla Euroliga" && git push)
+  - name: Publicar cambios automáticamente en GitHub Pages
+    run: |
+      git config --local user.email "github-actions[bot]@users.noreply.github.com"
+      git config --local user.name "EuroLeague Pulse Bot"
+      git add data/
+      git diff --quiet && git diff --staged --quiet || (git commit -m "chore(data): actualizar noticias y rumores Euroliga" && git push)
